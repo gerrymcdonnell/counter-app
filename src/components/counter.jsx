@@ -11,13 +11,21 @@ import React, { Component } from "react";
 
 // type cc for this shortcut
 class Counter extends Component {
+  //state object that contaisn data the component needs
+  state = {
+    count: 0
+  };
   render() {
     return (
       <React.Fragment>
-        <h1>Hello World im a component</h1>
+        <span>{this.formatCount()}</span>
         <button>Increment</button>
       </React.Fragment>
     );
+  }
+
+  formatCount() {
+    return this.state.count === 0 ? "Zero" : this.state.count;
   }
 }
 
