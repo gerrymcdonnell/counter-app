@@ -10,6 +10,7 @@ import Counter from './components/counter';
 // import bootstrap
 import 'bootstrap/dist/css/bootstrap.css'
 
+//render counter component
 ReactDOM.render(<Counter />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
