@@ -42,6 +42,7 @@ class Counter extends Component {
   //naming convention is handleWhat
   handleIncrement=()=> {
     console.log('increment clicked',this.state.count);
+    this.state.count++;
   }
 
 
