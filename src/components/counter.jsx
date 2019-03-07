@@ -18,6 +18,14 @@ class Counter extends Component {
     tags: ["tag1", "tag2", "tag3"]
   };
 
+
+  /*constructor(){
+    super();
+    this.handleIncrement=this.handleIncrement.bind(this);
+    //console.log("constructor called");
+  }*/
+
+
   styles = {
     fontSize: 10,
     fontWeight: "bold"
@@ -32,8 +40,8 @@ class Counter extends Component {
 
 
   //naming convention is handleWhat
-  handleIncrement() {
-    console.log('increment clicked');
+  handleIncrement=()=> {
+    console.log('increment clicked',this.state.count);
   }
 
 
