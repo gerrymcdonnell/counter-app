@@ -14,11 +14,12 @@ class Counter extends Component {
   //state object that contains data the component needs
   state = {
     count: 0,
-    imageUrl: "https://picsum.photos/200"
+    imageUrl: "https://picsum.photos/200",
+    tags: ["tag1", "tag2", "tag3"]
   };
 
-  styles={
-    fontSize:10,
+  styles = {
+    fontSize: 10,
     fontWeight: "bold"
   };
 
@@ -26,9 +27,16 @@ class Counter extends Component {
     return (
       <div>
         <img src={this.state.imageUrl} alt="" />
-        
-        <span style={this.styles} className="badge badge-primary m-2">{this.formatCount()}</span>
+
+        <span style={this.styles} className="badge badge-primary m-2">
+          {this.formatCount()}
+        </span>
         <button className="btn btn-secondary btn-sm">Increment</button>
+        <ul>
+          <li>
+            {this.state.tags.map(tag => (<li key={tag}>{tag}</li>))}
+          </li>
+        </ul>
       </div>
     );
   }
