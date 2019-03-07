@@ -11,7 +11,7 @@ import React, { Component } from "react";
 
 // type cc for this shortcut
 class Counter extends Component {
-  //state object that contaisn data the component needs
+  //state object that contains data the component needs
   state = {
     count: 0,
     imageUrl: "https://picsum.photos/200"
@@ -20,7 +20,7 @@ class Counter extends Component {
     return (
       <div>
         <img src={this.state.imageUrl} alt="" />
-        <span>{this.formatCount()}</span>
+        <span className="badge badge-primary m-2">{this.formatCount()}</span>
         <button>Increment</button>
       </div>
     );

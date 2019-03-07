@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 //import component
 import Counter from './components/counter';
 
-// import bootstrap
+// import bootstrap v4
 import 'bootstrap/dist/css/bootstrap.css'
 
 //render counter component
