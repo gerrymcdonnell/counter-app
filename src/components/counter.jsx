@@ -39,14 +39,23 @@ class Counter extends Component {
   }
 
 
-  //naming convention is handleWhat
-  handleIncrement = () => {
+  //event paramater product
+  handleIncrement = (product) => {
+    
+    console.log(product);
+    
     console.log('increment clicked', this.state.count);
 
     //cant do this with react
     //this.state.count++;
 
+    //see vid 33
     this.setState({ count: this.state.count + 1 });
+  };
+
+
+  doHandleIncrement=()=>{
+    this.handleIncrement({id:1});
   };
 
 
@@ -59,7 +68,7 @@ class Counter extends Component {
           {this.formatCount()}
         </span>
 
-        <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
+        <button onClick={this.doHandleIncrement} className="btn btn-secondary btn-sm">Increment</button>
 
 
         {this.state.tags.length === 0 && 'Please create a new tag'}
