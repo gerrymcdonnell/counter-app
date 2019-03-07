@@ -40,10 +40,14 @@ class Counter extends Component {
 
 
   //naming convention is handleWhat
-  handleIncrement=()=> {
-    console.log('increment clicked',this.state.count);
-    this.state.count++;
-  }
+  handleIncrement = () => {
+    console.log('increment clicked', this.state.count);
+
+    //cant do this with react
+    //this.state.count++;
+
+    this.setState({ count: this.state.count + 1 });
+  };
 
 
   render() {
