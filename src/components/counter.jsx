@@ -18,13 +18,11 @@ class Counter extends Component {
     tags: ["tag1", "tag2", "tag3"]
   };
 
-
   /*constructor(){
     super();
     this.handleIncrement=this.handleIncrement.bind(this);
     //console.log("constructor called");
   }*/
-
 
   styles = {
     fontSize: 10,
@@ -35,16 +33,21 @@ class Counter extends Component {
   renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags</p>;
 
-    return <ul> {this.state.tags.map(tag => (<li key={tag}>{tag}</li>))}</ul>
+    return (
+      <ul>
+        {" "}
+        {this.state.tags.map(tag => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    );
   }
 
-
   //event paramater product
-  handleIncrement = (product) => {
-    
+  handleIncrement = product => {
     console.log(product);
-    
-    console.log('increment clicked', this.state.count);
+
+    console.log("increment clicked", this.state.count);
 
     //cant do this with react
     //this.state.count++;
@@ -52,12 +55,6 @@ class Counter extends Component {
     //see vid 33
     this.setState({ count: this.state.count + 1 });
   };
-
-
-  doHandleIncrement=()=>{
-    this.handleIncrement({id:1});
-  };
-
 
   render() {
     return (
@@ -68,27 +65,30 @@ class Counter extends Component {
           {this.formatCount()}
         </span>
 
-        <button onClick={this.doHandleIncrement} className="btn btn-secondary btn-sm">Increment</button>
+        <button
+          onClick={() => {
+            this.handleIncrement({ id: 1 });
+          }}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
 
-
-        {this.state.tags.length === 0 && 'Please create a new tag'}
+        {this.state.tags.length === 0 && "Please create a new tag"}
         {this.renderTags()}
-
-
       </div>
     );
   }
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += (this.state.count === 0) ? "warning" : "primary";
+    classes += this.state.count === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
     return this.state.count === 0 ? "Zero" : this.state.count;
   }
-
 }
 
 export default Counter;
