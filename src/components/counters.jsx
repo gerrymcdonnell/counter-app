@@ -10,10 +10,10 @@ import Counter from "./counter";
 class Counters extends Component {
   state = {
     counters: [
-      { id: 1, value: 1 },
-      { id: 2, value: 2 },
-      { id: 3, value: 3 },
-      { id: 4, value: 4 }
+      { id: 1, value: 1, caption: "increment1" },
+      { id: 2, value: 2, caption: "increment2" },
+      { id: 3, value: 3, caption: "increment3" },
+      { id: 4, value: 4, caption: "increment4" }
     ]
   };
   render() {
@@ -21,7 +21,11 @@ class Counters extends Component {
       <div>
         {this.state.counters.map(counter => (
           /*create new counters with initial values*/
-          <Counter key={counter.id} value={counter.value} selected={true} />
+          <Counter
+            key={counter.id}
+            value={counter.value}
+            caption={counter.caption}
+          />
         ))}
       </div>
     );

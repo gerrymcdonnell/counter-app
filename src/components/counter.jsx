@@ -14,6 +14,7 @@ class Counter extends Component {
   //state object that contains data the component needs
   state = {
     value: this.props.value,
+    caption: this.props.caption,
     imageUrl: "https://picsum.photos/200",
     tags: ["tag1", "tag2", "tag3"]
   };
@@ -71,7 +72,7 @@ class Counter extends Component {
           }}
           className="btn btn-secondary btn-sm"
         >
-          Increment
+          {this.props.caption}
         </button>
 
         {this.state.tags.length === 0 && "Please create a new tag"}
