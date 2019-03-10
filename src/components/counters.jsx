@@ -30,10 +30,9 @@ class Counters extends Component {
           /*create new counters with initial values*/
           <Counter
             key={counter.id}
-            value={counter.value}
-            id={counter.id}
             /*what method to call when the ondelete event is activated*/
             onDelete={this.handleDelete}
+            counter={counter}
           >
             <h4>Title</h4>
           </Counter>
