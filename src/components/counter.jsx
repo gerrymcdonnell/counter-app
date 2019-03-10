@@ -13,7 +13,7 @@ import React, { Component } from "react";
 class Counter extends Component {
   //state object that contains data the component needs
   state = {
-    count: 0,
+    value: this.props.value,
     imageUrl: "https://picsum.photos/200",
     tags: ["tag1", "tag2", "tag3"]
   };
@@ -23,11 +23,6 @@ class Counter extends Component {
     this.handleIncrement=this.handleIncrement.bind(this);
     //console.log("constructor called");
   }*/
-
-  styles = {
-    fontSize: 10,
-    fontWeight: "bold"
-  };
 
   //conditional rendering for elements of the tags array
   renderTags() {
@@ -47,19 +42,20 @@ class Counter extends Component {
   handleIncrement = product => {
     console.log(product);
 
-    console.log("increment clicked", this.state.count);
+    console.log("increment clicked: count=", this.state.value);
 
-    //cant do this with react
-    //this.state.count++;
-
-    //see vid 33
-    this.setState({ count: this.state.count + 1 });
+    /*cant do this with react
+    this.state.count++;
+    see vid 33*/
+    this.setState({ value: this.state.value + 1 });
   };
 
   render() {
+    //display the props of this component
+    console.log("props", this.props);
+
     return (
       <div>
-        
         {/*
         comment out the image
         <img src={this.state.imageUrl} alt="" />
@@ -86,12 +82,12 @@ class Counter extends Component {
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    return this.state.count === 0 ? "Zero" : this.state.count;
+    return this.state.value === 0 ? "Zero" : this.state.value;
   }
 }
 

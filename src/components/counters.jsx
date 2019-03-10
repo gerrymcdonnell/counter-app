@@ -8,14 +8,21 @@ import Counter from "./counter";
 
 //zen coding: cc TAB key
 class Counters extends Component {
-  state = {};
+  state = {
+    counters: [
+      { id: 1, value: 1 },
+      { id: 2, value: 2 },
+      { id: 3, value: 3 },
+      { id: 4, value: 4 }
+    ]
+  };
   render() {
     return (
       <div>
-        <Counter />
-        <Counter />
-        <Counter />
-        <Counter />
+        {this.state.counters.map(counter => (
+          /*create new counters with initial values*/
+          <Counter key={counter.id} value={counter.value} selected={true} />
+        ))}
       </div>
     );
   }
