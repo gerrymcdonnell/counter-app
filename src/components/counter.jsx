@@ -59,7 +59,11 @@ class Counter extends Component {
   render() {
     return (
       <div>
+        
+        {/*
+        comment out the image
         <img src={this.state.imageUrl} alt="" />
+        */}
 
         <span style={this.styles} className={this.getBadgeClasses()}>
           {this.formatCount()}
@@ -75,7 +79,7 @@ class Counter extends Component {
         </button>
 
         {this.state.tags.length === 0 && "Please create a new tag"}
-        {this.renderTags()}
+        {/*this.renderTags()*/}
       </div>
     );
   }
