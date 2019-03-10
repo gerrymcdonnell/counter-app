@@ -10,12 +10,19 @@ import Counter from "./counter";
 class Counters extends Component {
   state = {
     counters: [
-      { id: 1, value: 1, caption: "increment1" },
-      { id: 2, value: 2, caption: "increment2" },
-      { id: 3, value: 3, caption: "increment3" },
-      { id: 4, value: 4, caption: "increment4" }
+      { id: 1, value: 1 },
+      { id: 2, value: 2 },
+      { id: 3, value: 3 },
+      { id: 4, value: 4 }
     ]
   };
+
+  handleDelete = counterId => {
+    console.log("event handle delete called", counterId);
+    const counters = this.state.counters.filter(c => c.id !== counterId);
+    this.setState({ counters: counters });
+  };
+
   render() {
     return (
       <div>
@@ -24,7 +31,9 @@ class Counters extends Component {
           <Counter
             key={counter.id}
             value={counter.value}
-            caption={counter.caption}
+            id={counter.id}
+            /*what method to call when the ondelete event is activated*/
+            onDelete={this.handleDelete}
           >
             <h4>Title</h4>
           </Counter>
