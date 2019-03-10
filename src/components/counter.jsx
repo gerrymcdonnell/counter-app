@@ -57,11 +57,7 @@ class Counter extends Component {
 
     return (
       <div>
-        {/*
-        comment out the image
-        <img src={this.state.imageUrl} alt="" />
-        */}
-
+        {this.props.children}
         <span style={this.styles} className={this.getBadgeClasses()}>
           {this.formatCount()}
         </span>

@@ -25,7 +25,9 @@ class Counters extends Component {
             key={counter.id}
             value={counter.value}
             caption={counter.caption}
-          />
+          >
+            <h4>Title</h4>
+          </Counter>
         ))}
       </div>
     );
