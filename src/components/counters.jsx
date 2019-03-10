@@ -1,12 +1,24 @@
 //render list of counters
-import React, { Component } from 'react';
+
+//zen coding: imrc TAB key
+import React, { Component } from "react";
+
+//import counter component
+import Counter from "./counter";
 
 //zen coding: cc TAB key
-class  extends Component {
-    state = {  }
-    render() { 
-        return (  );
-    }
+class Counters extends Component {
+  state = {};
+  render() {
+    return (
+      <div>
+        <Counter />
+        <Counter />
+        <Counter />
+        <Counter />
+      </div>
+    );
+  }
 }
- 
-export default ;
+
+export default Counters;
