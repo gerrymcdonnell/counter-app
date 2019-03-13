@@ -10,12 +10,17 @@ import Counter from "./counter";
 class Counters extends Component {
   state = {
     counters: [
-      { id: 1, value: 1 },
-      { id: 2, value: 2 },
-      { id: 3, value: 3 },
-      { id: 4, value: 4 }
+      { id: 1, value: 11 },
+      { id: 2, value: 22 },
+      { id: 3, value: 33 },
+      { id: 4, value: 44 }
     ]
   };
+
+  handleIncrement=counter=>{
+    console.log(counter);
+    const counters=[...this.state.counters];
+  }
 
   handleDelete = counterId => {
     console.log("event handle delete called", counterId);
@@ -48,9 +53,9 @@ class Counters extends Component {
             key={counter.id}
             /*what method to call when the ondelete event is activated*/
             onDelete={this.handleDelete}
+            onIncrement={this.handleIncrement}
             counter={counter}
           >
-            <h4>Title</h4>
           </Counter>
         ))}
       </div>

@@ -36,17 +36,7 @@ class Counter extends Component {
     );
   }*/
 
-  //event paramater product
-  handleIncrement = product => {
-    console.log(product);
 
-    console.log("increment clicked: count=", this.state.value);
-
-    /*cant do this with react
-    this.state.count++;
-    see vid 33*/
-    this.setState({ value: this.state.value + 1 });
-  };
 
   render() {
     //display the props of this component
@@ -60,9 +50,7 @@ class Counter extends Component {
         </span>
 
         <button
-          onClick={() => {
-            this.handleIncrement({ id: 1 });
-          }}
+          onClick={()=>this.props.onIncrement(this.props.counter.id)}
           className="btn btn-secondary btn-sm"
         >
           Increment
@@ -84,12 +72,12 @@ class Counter extends Component {
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.value === 0 ? "warning" : "primary";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    return this.state.value === 0 ? "Zero" : this.state.value;
+    return this.props.counter.value === 0 ? "Zero" : this.props.counter.value;
   }
 }
 
