@@ -23,9 +23,25 @@ class Counters extends Component {
     this.setState({ counters: counters });
   };
 
+  //handle reset button click
+  handleReset = () => {
+    console.log("handleReset called");
+    const counters = this.state.counters.map(c => {
+      c.value = 0;
+      return c;
+    });
+    this.setState({ counters: counters });
+  };
+
   render() {
     return (
       <div>
+        <button
+          onClick={this.handleReset}
+          className="btn btn-primary btn-sm m2"
+        >
+          Reset
+        </button>
         {this.state.counters.map(counter => (
           /*create new counters with initial values*/
           <Counter
