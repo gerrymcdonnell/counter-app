@@ -13,9 +13,7 @@ import React, { Component } from "react";
 class Counter extends Component {
   //state object that contains data the component needs
   state = {
-    value: this.props.counter.value,
-    imageUrl: "https://picsum.photos/200",
-    tags: ["tag1", "tag2", "tag3"]
+    value: this.props.counter.value    
   };
 
   /*constructor(){
@@ -25,7 +23,7 @@ class Counter extends Component {
   }*/
 
   //conditional rendering for elements of the tags array
-  renderTags() {
+  /*renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags</p>;
 
     return (
@@ -36,7 +34,7 @@ class Counter extends Component {
         ))}
       </ul>
     );
-  }
+  }*/
 
   //event paramater product
   handleIncrement = product => {
@@ -78,7 +76,7 @@ class Counter extends Component {
           delete
         </button>
 
-        {this.state.tags.length === 0 && "Please create a new tag"}
+        {/*this.state.tags.length === 0 && "Please create a new tag"*/}
         {/*this.renderTags()*/}
       </div>
     );
