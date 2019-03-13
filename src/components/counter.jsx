@@ -12,35 +12,10 @@ import React, { Component } from "react";
 // type cc for this shortcut
 class Counter extends Component {
   //state object that contains data the component needs
-  state = {
-    value: this.props.counter.value    
-  };
-
-  /*constructor(){
-    super();
-    this.handleIncrement=this.handleIncrement.bind(this);
-    //console.log("constructor called");
-  }*/
-
-  //conditional rendering for elements of the tags array
-  /*renderTags() {
-    if (this.state.tags.length === 0) return <p>There are no tags</p>;
-
-    return (
-      <ul>
-        {" "}
-        {this.state.tags.map(tag => (
-          <li key={tag}>{tag}</li>
-        ))}
-      </ul>
-    );
-  }*/
-
-
 
   render() {
     //display the props of this component
-    console.log("props", this.props);
+    //console.log("props", this.props);
 
     return (
       <div>
@@ -50,7 +25,7 @@ class Counter extends Component {
         </span>
 
         <button
-          onClick={()=>this.props.onIncrement(this.props.counter.id)}
+          onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn btn-secondary btn-sm"
         >
           Increment
@@ -63,9 +38,6 @@ class Counter extends Component {
         >
           delete
         </button>
-
-        {/*this.state.tags.length === 0 && "Please create a new tag"*/}
-        {/*this.renderTags()*/}
       </div>
     );
   }
@@ -77,7 +49,8 @@ class Counter extends Component {
   }
 
   formatCount() {
-    return this.props.counter.value === 0 ? "Zero" : this.props.counter.value;
+    const { value } = this.props.counter;
+    return value === 0 ? "Zero" : value;
   }
 }
 

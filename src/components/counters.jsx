@@ -10,17 +10,25 @@ import Counter from "./counter";
 class Counters extends Component {
   state = {
     counters: [
-      { id: 1, value: 11 },
-      { id: 2, value: 22 },
-      { id: 3, value: 33 },
-      { id: 4, value: 44 }
+      { id: 1, value: 4 },
+      { id: 2, value: 2 },
+      { id: 3, value: 3 },
+      { id: 4, value: 4 }
     ]
   };
 
-  handleIncrement=counter=>{
-    console.log(counter);
-    const counters=[...this.state.counters];
-  }
+  //something wrong here?
+  handleIncrement = counter => {
+    console.log("handleincrement called:", counter);
+    //spread operator to clone array of counters in state object
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+
+    counters[index] = { ...counter };
+    counters[index].value++;
+
+    this.setState({ counters: counters });
+  };
 
   handleDelete = counterId => {
     console.log("event handle delete called", counterId);
@@ -55,8 +63,7 @@ class Counters extends Component {
             onDelete={this.handleDelete}
             onIncrement={this.handleIncrement}
             counter={counter}
-          >
-          </Counter>
+          />
         ))}
       </div>
     );
