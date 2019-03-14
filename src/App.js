@@ -49,7 +49,7 @@ class App extends Component {
     return (
       /* if returning multiple root elements from root method must wrap in a react fragment*/
       <React.Fragment>
-        <Navbar />
+        <Navbar totalCounters={this.state.counters.length} />
         <main className="container">
           <Counters
             counters={this.state.counters}
