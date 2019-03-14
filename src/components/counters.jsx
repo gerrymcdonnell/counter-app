@@ -17,11 +17,14 @@ class Counters extends Component {
     ]
   };
 
-  //something wrong here?
+  
   handleIncrement = counter => {
     console.log("handleincrement called:", counter);
-    //spread operator to clone array of counters in state object
+    
+    //spread operator to clone array of counters in state object        
     const counters = [...this.state.counters];
+
+    //get the index of the counter that is passed
     const index = counters.indexOf(counter);
 
     counters[index] = { ...counter };
