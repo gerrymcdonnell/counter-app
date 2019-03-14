@@ -8,24 +8,26 @@ import Counter from "./counter";
 
 //zen coding: cc TAB key
 class Counters extends Component {
-  
+
 
   render() {
+    const { onReset, counters, onDelete, onIncrement } = this.props;
+
     return (
       <div>
         <button
-          onClick={this.props.onReset}
+          onClick={onReset}
           className="btn btn-primary btn-sm m2"
         >
           Reset
         </button>
-        {this.props.counters.map(counter => (
+        {counters.map(counter => (
           /*create new counters with initial values*/
           <Counter
             key={counter.id}
             /*what method to call when the ondelete event is activated*/
-            onDelete={this.props.onDelete}
-            onIncrement={this.props.onIncrement}
+            onDelete={onDelete}
+            onIncrement={onIncrement}
             counter={counter}
           />
         ))}
