@@ -14,6 +14,12 @@ class App extends Component {
     ]
   };
 
+  constructor() {
+    super();
+    console.log('app -constructor');
+
+  }
+
   handleIncrement = counter => {
     console.log("handleincrement called:", counter);
 
@@ -49,7 +55,7 @@ class App extends Component {
     return (
       /* if returning multiple root elements from root method must wrap in a react fragment*/
       <React.Fragment>
-        
+
         {/**total counters */}
         <Navbar totalCounters={this.state.counters.length} />
 
@@ -58,7 +64,7 @@ class App extends Component {
         the elements in the array
         */}
         <Navbar
-          totalCounters={this.state.counters.filter(c => c.value > 0).length}/>
+          totalCounters={this.state.counters.filter(c => c.value > 0).length} />
 
         <main className="container">
           <Counters
